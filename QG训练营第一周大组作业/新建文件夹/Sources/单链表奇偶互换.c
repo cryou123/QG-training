@@ -5,7 +5,7 @@ ML* ChangeList(ML* head)
 {
 	int tem = 0;		//用于两个数的交换
 	ML* L = (ML*)malloc(sizeof(ML));
-	L = head;
+	L = head->next;
 	while (L->next)
 	{
 		ML* P = (ML*)malloc(sizeof(ML));

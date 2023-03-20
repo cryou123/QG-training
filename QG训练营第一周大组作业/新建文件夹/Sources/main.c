@@ -7,14 +7,26 @@ int main()
 	printf("1.单向链表and双向链表的创建\n");
 	ML* head = initList();
 	MDL* DoubleHead = initDoubleList();
-	CreateList(head);
-	PrintList(head);
-	CreateDoubleList(DoubleHead);
-	PrintDoubleList(DoubleHead);
+	int b = 0;
+	while (b != -1)
+	{
+		menu();
+		printf("输入你想进行的操作:\n");
+		scanf("%d", &b);
+		if (b == 1)  CreateList(head); 
+		if (b == 2) { DestroyList(&head); head = initList();}
+		if (b == 3) { printf("输入你想插入的数据：\n"); int c = 0; scanf("%d", &c); head = InsertList(head, c); }
+		if (b == 4) { printf("输入你想删除的数据：\n"); int c = 0; scanf("%d", &c); head = DeleteList(head, c); }
+		if (b == 5) { printf("输入你想查找的数据：\n"); int c = 0; scanf("%d", &c); SearchList(head,c); }
+		PrintList(head);
+		system("pause");
+	}
+	system("cls");
+	//CreateDoubleList(DoubleHead);
+	//PrintDoubleList(DoubleHead);
 
 	printf("\n2.单链表奇偶互换\n");
 	//注：理解为有奇偶数相隔的时候互换,输入a>0,并且一个数只会被交换一次（即1  2  2会变成2  1  2 而不是2  2  1）
-
 	head = initList();
 	head = CreateList(head);
 	printf("互换前的数据:\n");
@@ -22,6 +34,8 @@ int main()
 	printf("互换后的数据:\n");
 	head = ChangeList(head);
 	PrintList(head);
+	system("pause");
+	system("cls");
 	
 	printf("\n3.找到单链表的中点\n");
 	//注：若数组长度为偶数，则找出前一位数，即（1，2，3，1）找出2
@@ -32,7 +46,9 @@ int main()
 	printf("链表长度为:");
 	printf("%d\n", len);
 	int Mid_num = ListMid(head,len);
-	printf("链表的中点数据为:%d", Mid_num);
+	printf("链表的中点数据为:%d\n", Mid_num);
+	system("pause");
+	system("cls");
 
 	printf("\n4.判断链表是否为环\n");
 	//注：成环or不成环得二选一，且成环结点不可为0或大于链表本身
@@ -45,6 +61,8 @@ int main()
 	if(a==1)
 		head = CircleList(head);		//创造成环链表
 	JudgeList(head);
+	system("pause");
+	system("cls");
 
 	printf("\n5.反转链表\n");
 	head = initList();
